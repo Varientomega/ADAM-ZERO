@@ -252,12 +252,13 @@ class FragmentNormalizer:
         """
 
         # Create new normalized graph
+        base_metadata = graph.metadata if graph.metadata else {}
         normalized = FragmentGraph(
             id=self._canonical_graph_id(graph),
             name=graph.name,
             nodes=[],
             edges=[],
-            metadata={**graph.metadata or {}, "normalized": True}
+            metadata={**base_metadata, "normalized": True}
         )
 
         # Sort and canonicalize nodes
