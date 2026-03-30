@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "adam-zero"
+version = "0.2.0"
+description = "Web automation agent — vibe coding assistant and second-brain harvester"
+requires-python = ">=3.11"
+dependencies = [
+    "anthropic>=0.40.0",
+    "playwright>=1.40.0",
+    "rich>=13.0.0",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "aiofiles>=23.0.0",
+    "markdownify>=0.11.0",
+]
+
+[project.scripts]
+adam = "adam_zero.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["adam_zero*"]
